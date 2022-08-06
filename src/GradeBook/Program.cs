@@ -5,3 +5,10 @@ if(args.Length > 0){
 else{
     Console.WriteLine("Hello there!");
 }
+
+var number = new double[3];
+number[0] = 12.7;
+double x;
+x = 10;
+Console.WriteLine(x);
+Console.WriteLine(number[0]);
