@@ -6,9 +6,9 @@ else{
     Console.WriteLine("Hello there!");
 }
 
-var number = new double[3];
-number[0] = 12.7;
-double x;
-x = 10;
-Console.WriteLine(x);
-Console.WriteLine(number[0]);
+var numbers = new[] {12.7, 10.3, 9.1, 13.5};
+var result = 0.0;
+foreach(double number in numbers){
+    result += number;
+}
+Console.WriteLine(result);
