@@ -9,8 +9,19 @@ while(true)
     {
         break;
     }
-    var grade = double.Parse(input);
-    book.AddGrade(grade);
+    
+    try
+    {
+        if(input is not null)
+        {
+            var grade = double.Parse(input);
+            book.AddGrade(grade);
+        }
+    }
+    catch(Exception ex)
+    {
+        Console.WriteLine(ex.Message);
+    }
 }
 
 var result = book.GetStatistics();
