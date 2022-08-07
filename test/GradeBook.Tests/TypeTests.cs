@@ -3,6 +3,20 @@ namespace GradeBook.Tests;
 public class TypeTests
 {
     [Fact]
+    public void StringBehavesLikeValueTypes()
+    {
+        string name = "zaied";
+        name = MakeUpper(name);
+
+        Assert.Equal("ZAIED", name);
+    }
+
+    private string MakeUpper(string name)
+    {
+        return name.ToUpper();
+    }
+
+    [Fact]
     public void CSharpCanPassByRef()
     {
         var book1 = GetBook("Book 1");
