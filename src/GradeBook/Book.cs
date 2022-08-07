@@ -13,6 +13,25 @@ namespace GradeBook
             Name = name;
         }
 
+        public void AddGradeLetter(char Latter)
+        {
+            switch(Latter)
+            {
+                case 'A':
+                    AddGrade(80.0);
+                    break;
+                case 'B':
+                    AddGrade(70.0);
+                    break;
+                case 'C':
+                    AddGrade(60.0);
+                    break;
+                default:
+                    AddGrade(0.0);
+                    break;
+            }
+        }
+
         public void AddGrade(double grade)
         {
             if(grade >= 0 && grade <=100)
@@ -39,6 +58,22 @@ namespace GradeBook
                 result.Average += grades[index];
             }
             result.Average /= grades.Count;
+
+            switch(result.Average)
+            {
+                case var d when d>=80:
+                    result.Letter = 'A';
+                    break;
+                case var d when d>=70:
+                    result.Letter = 'B';
+                    break;
+                case var d when d>=60:
+                    result.Letter = 'C';
+                    break;
+                default:
+                    result.Letter = 'D';
+                    break;
+            }
             
             return result;
         }

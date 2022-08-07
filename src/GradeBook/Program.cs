@@ -14,3 +14,4 @@ var result = book.GetStatistics();
 Console.WriteLine($"The highest grade is: {result.High}");
 Console.WriteLine($"The lowest grade is: {result.Low}");
 Console.WriteLine($"Average grade is: {result.Average:N2}");
+Console.WriteLine($"Latter grade is: {result.Letter}");
