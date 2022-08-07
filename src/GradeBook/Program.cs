@@ -1,24 +1,12 @@
-﻿// See https://aka.ms/new-console-template for more information
-if(args.Length > 0){
-    Console.WriteLine($"Hello, Zadu! {args[0]}.");
-}
-else{
-    Console.WriteLine("Hello there!");
-}
+﻿using GradeBook;
 
-var result = 0.0;
-var numbers = new[] {12.7, 10.3, 9.1, 13.5};
-var grades = new List<double>(){12.7, 10.3, 9.1, 13.5, 18.1};
-grades.Add(56.1);
+var book = new Book("Akash's Grade Book");
 
-foreach(var number in grades){
-    result += number;
-}
-result /= grades.Count;
-Console.WriteLine($"Average score is {result:N2}");
+book.AddGrade(56.1);
+book.AddGrade(14.5);
+book.AddGrade(87.9);
+book.AddGrade(53.2);
+book.AddGrade(68.9);
+book.AddGrade(33.7);
 
-
-foreach(double number in numbers){
-    result += number;
-}
-Console.WriteLine($"Total Number: {result:N2}");
+book.ShowStatistics();
