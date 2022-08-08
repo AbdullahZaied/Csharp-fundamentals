@@ -1,6 +1,8 @@
 ﻿using GradeBook;
 
 var book = new Book("Akash's Grade Book");
+book.GradeAdded += OnGradeAdded;
+
 while(true)
 {
     Console.WriteLine("Enter grade or q to quit");
@@ -30,3 +32,8 @@ Console.WriteLine($"The highest grade is: {result.High}");
 Console.WriteLine($"The lowest grade is: {result.Low}");
 Console.WriteLine($"Average grade is: {result.Average:N2}");
 Console.WriteLine($"Letter grade is: {result.Letter}");
+
+static void OnGradeAdded(object sender, EventArgs e)
+{
+    Console.WriteLine("A grade was added.");
+}
