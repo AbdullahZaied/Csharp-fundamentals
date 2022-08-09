@@ -19,10 +19,19 @@ namespace GradeBook
             set;
         }
     }
-    
-    public class Book : NameObject
+
+    public abstract class Book : NameObject
     {
-        public Book(string name) : base(name)
+        protected Book(string name) : base(name)
+        {
+        }
+
+        public abstract void AddGrade(double grade);
+    }
+    
+    public class InMemoryBook : Book
+    {
+        public InMemoryBook(string name) : base(name)
         {
             grades = new List<double>();
             Name = name;
@@ -47,7 +56,7 @@ namespace GradeBook
             }
         }
 
-        public void AddGrade(double grade)
+        public override void AddGrade(double grade)
         {
             if(grade >= 0 && grade <=100)
             {
