@@ -6,9 +6,23 @@ using System.Threading.Tasks;
 namespace GradeBook
 {
     public delegate void GradeAddedDelegate(object sender, EventArgs args);
-    public class Book
+    
+    public class NameObject
     {
-        public Book(string name)
+        public NameObject(string name)
+        {
+            Name = name;
+        }
+        public string Name
+        {
+            get;
+            set;
+        }
+    }
+    
+    public class Book : NameObject
+    {
+        public Book(string name) : base(name)
         {
             grades = new List<double>();
             Name = name;
@@ -83,12 +97,6 @@ namespace GradeBook
             }
             
             return result;
-        }
-
-        public string Name
-        {
-            get;
-            set;
         }
         private List<double> grades;
     }
