@@ -35,14 +35,11 @@ namespace GradeBook
         {
         }
 
-        public virtual event GradeAddedDelegate? GradeAdded;
+        public abstract event GradeAddedDelegate? GradeAdded;
 
         public abstract void AddGrade(double grade);
 
-        public virtual Statistics GetStatistics()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract Statistics GetStatistics();
     }
     
     public class InMemoryBook : Book
@@ -77,6 +74,11 @@ namespace GradeBook
             if(grade >= 0 && grade <=100)
             {
                 grades.Add(grade);
+                using(var writter = File.AppendText($"{Name}.txt"))
+                {
+                    writter.WriteLine(grade);
+                }
+
                 if(GradeAdded != null)
                 {
                     GradeAdded(this, new EventArgs());
