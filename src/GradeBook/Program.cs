@@ -17,7 +17,7 @@ static void OnGradeAdded(object sender, EventArgs e)
     Console.WriteLine("A grade was added.");
 }
 
-static void EnterGrades(Book book)
+static void EnterGrades(IBook book)
 {
     while (true)
     {
